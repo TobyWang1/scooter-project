@@ -21,12 +21,8 @@ class ScooterApp {
   loginUser (username, password) {
     if (username in this.registeredUsers) {
       const user = this.registeredUsers[username]
-      try {
-        user.login(password)
-        console.log(`${username} logged in successfully.`)
-      } catch (error) {
-        console.error(error.message)
-      }
+      user.login(password)
+      console.log(`${username} logged in successfully.`)
     } else {
       throw new Error('User not found')
     }
@@ -35,12 +31,8 @@ class ScooterApp {
   logoutUser (username) {
     if (username in this.registeredUsers) {
       const user = this.registeredUsers[username]
-      try {
-        user.logout()
-        console.log(`${username} is logged out`)
-      } catch (error) {
-        console.error(error.message)
-      }
+      user.logout()
+      console.log(`${username} is logged out`)
     } else {
       throw new Error('No such user is logged in')
     }
